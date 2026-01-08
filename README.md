@@ -31,8 +31,9 @@ My research focuses on optimal transport methods for medical imaging and compute
 - Piening*, M., Altekrüger, F., Steidl, G., Hattingen, E., Steidl*, E. *Conditional Generative Models for Contrast-Enhanced Synthesis of T1w and T1 Maps in Brain MRI.* Proceedings of ISBI’25 (Oral), 2025.
 - Flotho*, P., Piening*, M., Kukleva, A., Steidl, G. *T-FAKE: Synthesizing Thermal Images for Facial Landmarking.* Proceedings of CVPR’25, 2025.
 - Piening, M., Altekrüger, F., Hertrich, J., Hagemann, P., Walther, A., Steidl, G. *Learning from small data sets: Patch‐based regularizers in inverse problems for image reconstruction.* GAMM‐Mitteilungen, 2024.
-- Plavcan, D., Lukau, E., Klafft, M., Piening, M. *KI-basierte Analyse des Einflusses von Wetter auf die Fahrgeschwindigkeiten von Fernbussen und Lastkraftwagen.* Proceedings of Workshop des Arbeitskreises “Umweltinformationssysteme”, 2022.
-# Randomly Rating Objects Because I Do Not Believe in Overly Serious Websites
+- Plavcan, D., Lukau, E., Klafft, M., Piening, M. *KI-basierte Analyse des Einflusses von Wetter auf die Fahrgeschwindigkeiten von Fernbussen und Lastkraftwagen.* Proceedings of Workshop des Arbeitskreises “Umweltinformationssysteme”, 2022
+
+### Randomly Rating Objects Because I Do Not Believe in Overly Serious Websites
 
 - Peanuts: 8/10  
 - Peanut butter: 10/10  
