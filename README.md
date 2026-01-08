@@ -50,7 +50,7 @@ My research focuses on optimal transport methods for medical imaging and compute
 
 ### Randomly Rating Objects Because I Do Not Believe in Overly Serious Websites
 
-- Peanuts: 8/10  
+- Peanuts: 7/10  
 - Peanut butter: 10/10  
 - Green (as a color): 7/10
 - Color (as a concept): 10/10
