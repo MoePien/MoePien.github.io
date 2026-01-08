@@ -32,4 +32,16 @@ My research focuses on optimal transport methods for medical imaging and compute
 - Flotho*, P., Piening*, M., Kukleva, A., Steidl, G. *T-FAKE: Synthesizing Thermal Images for Facial Landmarking.* Proceedings of CVPR’25, 2025.
 - Piening, M., Altekrüger, F., Hertrich, J., Hagemann, P., Walther, A., Steidl, G. *Learning from small data sets: Patch‐based regularizers in inverse problems for image reconstruction.* GAMM‐Mitteilungen, 2024.
 - Plavcan, D., Lukau, E., Klafft, M., Piening, M. *KI-basierte Analyse des Einflusses von Wetter auf die Fahrgeschwindigkeiten von Fernbussen und Lastkraftwagen.* Proceedings of Workshop des Arbeitskreises “Umweltinformationssysteme”, 2022.
+# Randomly Rating Objects Because I Do Not Believe in Overly Serious Websites
+
+- Peanuts: 8/10  
+- Peanut butter: 10/10  
+- Green (as a color): 7/10  
+- Kung Fu Panda: 10/10  
+- Fast & Furious: 4/10*  
+- Summer: 10/10  
+- Winter: 3/10
+- Winter with snow: 6/10  
+
+\*I have never watched the movie, so this is an educated guess.
 
