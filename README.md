@@ -38,8 +38,8 @@ My research focuses on optimal transport methods for medical imaging and compute
 - **thermal-face-alignment**  
   Open-source Python package for thermal facial landmark detection and alignment.  
   The project is provided for ethical scientific and research use, particularly in medical screening settings.
-  
-[thermal-face-alignment on PyPI](https://pypi.org/project/thermal-face-alignment/)
+
+  [thermal-face-alignment on PyPI](https://pypi.org/project/thermal-face-alignment/)
 
 
 
