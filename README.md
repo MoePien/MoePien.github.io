@@ -40,11 +40,21 @@ My research focuses on optimal transport methods for medical imaging and compute
   The project is provided for ethical scientific and research use, particularly in medical screening settings.
   https://pypi.org/project/thermal-face-alignment/
 
+
+
+
+
+
+  
+
 ### Randomly Rating Objects Because I Do Not Believe in Overly Serious Websites
 
 - Peanuts: 8/10  
 - Peanut butter: 10/10  
-- Green (as a color): 7/10  
+- Green (as a color): 7/10
+- Color (as a concept): 10/10
+- Current Handling of the Climate Crisis 0/100
+- AfD 0/10<sup>9</sup>
 - Kung Fu Panda: 10/10  
 - Fast & Furious: 4/10*  
 - Summer: 10/10  
