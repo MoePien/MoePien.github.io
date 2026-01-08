@@ -53,7 +53,7 @@ My research focuses on optimal transport methods for medical imaging and compute
 - Peanut butter: 10/10  
 - Green (as a color): 7/10
 - Color (as a concept): 10/10
-- AfD 0/10<sup>9</sup>
+- AfD 0/100000
 - Kung Fu Panda: 10/10  
 - Fast & Furious: 4/10*  
 - Summer: 10/10  
