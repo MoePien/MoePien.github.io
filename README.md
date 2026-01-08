@@ -22,7 +22,7 @@ Tip: keep this file named README.md in the root of MoePien.github.io.
 
 ## About
 I’m a PhD researcher in Applied Mathematics at Technical University Berlin (Supervisor: Prof. Dr. Gabriele Steidl).  
-My research focuses on optimal transport methods for medical imaging and computer vision.
+My research focuses on optimal transport methods for medical imaging and computer vision. I’m always happy to be contacted regarding research, collaborations, or related discussions.
 
 # Publications
 - Piening, M., Beinert, R. *Slicing Wasserstein Over Wasserstein Via Functional Optimal Transport.* Under review for ICLR’26 (arXiv:2509.22138), 2025.
