@@ -4,7 +4,7 @@ Tip: keep this file named README.md in the root of MoePien.github.io.
 -->
 
 <div align="center">
-  <img src="anime_mo.jpg" alt="Profile image" width="180" style="border-radius: 18px;" />
+  <img src="anime_mo.jpg" alt="Profile image" width="360" style="border-radius: 18px;" />
   <h1>Moritz Piening</h1>
   <p>
     PhD Researcher in Applied Mathematics · TU Berlin<br/>
