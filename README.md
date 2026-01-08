@@ -11,7 +11,6 @@ Tip: keep this file named README.md in the root of MoePien.github.io.
     Optimal transport · Medical imaging · Computer vision
   </p>
   <p>
-    <a href="mailto:moritzpiening@web.de">moritzpiening@web.de</a> ·
     <a href="mailto:piening@math.tu-berlin.de">piening@math.tu-berlin.de</a> ·
     <a href="https://github.com/MoePien">GitHub</a> ·
     <a href="https://scholar.google.de/citations?user=2TTrhm0AAAAJ&hl=de&oi=ao">Google Scholar</a>
