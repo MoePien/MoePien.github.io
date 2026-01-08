@@ -26,7 +26,7 @@ My research focuses on optimal transport methods for medical imaging and compute
 
 # Publications
 - Piening, M., Beinert, R. *Slicing Wasserstein Over Wasserstein Via Functional Optimal Transport.* Under review for ICLR’26 (arXiv:2509.22138), 2025.
-- Piening*, M., Beinert, R. *A Novel Sliced Fused Gromov-Wasserstein Distance.* Proceedings of AAAI’26 (Upcoming, Oral, *: Equal Contribution), 2026.
+- Piening*, M., Beinert*, R. *A Novel Sliced Fused Gromov-Wasserstein Distance.* Proceedings of AAAI’26 (Upcoming, Oral, *: Equal Contribution), 2026.
 - Piening*, M., Beinert*, R. *Slicing the Gaussian Mixture Wasserstein Distance.* Transactions on Machine Learning Research, 2025.
 - Beier*, F., Piening*, M., Beinert, R., Steidl, G. *Joint Metric Space Embedding by Unbalanced OT with Gromov-Wasserstein Marginal Penalization.* Proceedings of ICML’25, 2025.
 - Piening*, M., Altekrüger, F., Steidl, G., Hattingen, E., Steidl*, E. *Conditional Generative Models for Contrast-Enhanced Synthesis of T1w and T1 Maps in Brain MRI.* Proceedings of ISBI’25 (Oral), 2025.
