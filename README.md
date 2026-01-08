@@ -33,6 +33,13 @@ My research focuses on optimal transport methods for medical imaging and compute
 - Piening, M., Altekrüger, F., Hertrich, J., Hagemann, P., Walther, A., Steidl, G. *Learning from small data sets: Patch‐based regularizers in inverse problems for image reconstruction.* GAMM‐Mitteilungen, 2024.
 - Plavcan, D., Lukau, E., Klafft, M., Piening, M. *KI-basierte Analyse des Einflusses von Wetter auf die Fahrgeschwindigkeiten von Fernbussen und Lastkraftwagen.* Proceedings of Workshop des Arbeitskreises “Umweltinformationssysteme”, 2022
 
+## Software
+
+- **thermal-face-alignment**  
+  Open-source Python package for thermal facial landmark detection and alignment.  
+  The project is provided for ethical scientific and research use, particularly in medical screening settings.
+  https://pypi.org/project/thermal-face-alignment/
+
 ### Randomly Rating Objects Because I Do Not Believe in Overly Serious Websites
 
 - Peanuts: 8/10  
