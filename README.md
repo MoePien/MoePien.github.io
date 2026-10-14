@@ -46,7 +46,7 @@ I completed my PhD in Applied Mathematics at TU Berlin under the supervision of 
 
   [thermal-face-alignment on PyPI](https://pypi.org/project/thermal-face-alignment/)
 
-  - **SOL – Sliced Optimal Transport for Language**  
+- **SOL – Sliced Optimal Transport for Language**  
   Open-source Python package developed by **G. Kornhardt** for evaluating language models by comparing generated and reference text distributions using double-sliced Wasserstein distances. Based on our [joint research paper](https://arxiv.org/abs/2610.06513).
 
   [sol-metric on PyPI](https://pypi.org/project/sol-metric/)
