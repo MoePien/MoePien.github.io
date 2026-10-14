@@ -24,7 +24,8 @@ I’m a postdoctoral researcher in the Optimal Transport Group at the University
 I completed my PhD in Applied Mathematics at TU Berlin under the supervision of Prof. Dr. Gabriele Steidl. My research focuses on computational optimal transport, generative modeling, and geometric machine learning.
 
 # Publications
-- Piening, M., Wald, C. *Gromov-Monge Flow Matching for Equivariant Graph Generation.* arXiv:2608.26961, 2026.
+- Piening, M., Wald, C. Alignment Matters Inside and Out in Equivariant Graph Flow Matching. arXiv:2608.26961, 2026.
+- Kornhardt, G., Piening, M., Chemseddine, J., Steidl, G. SOL: Measuring Gaps between Text Distributions by Double Sliced Wasserstein Metrics. arXiv:2610.06513, 2026.
 - Piening, M., Duong, R., Steidl, G. *Generalized Wasserstein Flow Matching: Transport Plans, Everywhere, All at Once.* Accepted at NeurIPS’26 (arXiv:2605.08424), 2026.
 - Clerc, A., Quellmalz, M., Piening, M., Flotho, P., Kornhardt, G., Steidl, G. *HOT-POT: Optimal Transport for Sparse Stereo Matching.* Journal of Mathematical Imaging and Vision, 2026.
 - Piening, M., Beinert, R. *Slicing Wasserstein Over Wasserstein Via Functional Optimal Transport.* Proceedings of ICLR’26, 2026.
@@ -40,10 +41,15 @@ I completed my PhD in Applied Mathematics at TU Berlin under the supervision of 
 ## Software
 
 - **thermal-face-alignment**  
-  Open-source Python package for thermal facial landmark detection and alignment.  
+  Open-source Python package developed by **P. Flotho** and me for thermal facial landmark detection and alignment.  
   The project is provided for ethical scientific and research use, particularly in [medical screening settings](https://www.tu.berlin/en/arte/research/projects/vi-screen).
 
   [thermal-face-alignment on PyPI](https://pypi.org/project/thermal-face-alignment/)
+
+  - **SOL – Sliced Optimal Transport for Language**  
+  Open-source Python package developed by **G. Kornhardt** for evaluating language models by comparing generated and reference text distributions using double-sliced Wasserstein distances. Based on our [joint research paper](https://arxiv.org/abs/2610.06513).
+
+  [sol-metric on PyPI](https://pypi.org/project/sol-metric/)
 
 ### Randomly Rating Objects Because I Do Not Believe in Overly Serious Websites
 
