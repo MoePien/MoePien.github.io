@@ -28,7 +28,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   justify-content: space-between;
   width: var(--width);
   margin: 0 auto;
-  padding: 18px 0 12px;
+  padding: 12px 0 8px;
   border-bottom: 1px solid var(--line);
 }
 .wordmark { color: var(--text); font-size: .95rem; font-weight: 700; text-decoration: none; }
@@ -39,10 +39,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .hero {
   display: grid;
-  grid-template-columns: 1fr 240px;
-  gap: 46px;
+  grid-template-columns: 1fr 165px;
+  gap: 26px;
   align-items: center;
-  padding: 42px 0 46px;
+  padding: 24px 0 26px;
 }
 .eyebrow, .section-number {
   margin: 0 0 10px;
@@ -60,10 +60,12 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   line-height: 1.1;
   letter-spacing: -.04em;
 }
-.intro { max-width: 600px; margin: 13px 0 16px; color: var(--muted); font-size: 1rem; }
-.contact-row { display: flex; flex-wrap: wrap; gap: 14px; }
-.contact-row a { font-size: .8rem; }
-.portrait-wrap { width: 240px; margin: 0; }
+.hero .eyebrow { margin-bottom: 5px; font-size: .59rem; }
+.hero h1 { font-size: clamp(1.85rem, 4vw, 2.5rem); }
+.intro { max-width: 600px; margin: 6px 0 8px; color: var(--muted); font-size: .84rem; line-height: 1.4; }
+.contact-row { display: flex; flex-wrap: wrap; gap: 11px; }
+.contact-row a { font-size: .68rem; }
+.portrait-wrap { width: 165px; margin: 0; }
 .portrait-wrap img { display: block; width: 100%; aspect-ratio: 4 / 3; border-radius: 4px; object-fit: cover; }
 
 .section-grid {
@@ -167,17 +169,18 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 @media (max-width: 640px) {
   :root { --width: min(100% - 24px, 560px); }
   body { font-size: 14px; }
-  .site-header { padding: 12px 0 9px; }
+  .site-header { padding: 9px 0 6px; }
   .wordmark { font-size: .85rem; }
   .tabs { gap: 13px; }
   .tabs a { font-size: .68rem; }
-  .hero { grid-template-columns: 1fr 105px; gap: 18px; padding: 28px 0 32px; }
-  .hero h1 { font-size: clamp(1.9rem, 9vw, 2.6rem); }
-  .eyebrow, .section-number { font-size: .59rem; }
-  .intro { margin: 9px 0 12px; font-size: .86rem; line-height: 1.45; }
-  .contact-row { gap: 10px; }
-  .contact-row a { font-size: .7rem; }
-  .portrait-wrap { width: 105px; align-self: start; }
+  .hero { grid-template-columns: 1fr 72px; gap: 12px; padding: 17px 0 19px; }
+  .hero h1 { font-size: clamp(1.5rem, 7vw, 1.9rem); }
+  .eyebrow, .section-number { font-size: .57rem; }
+  .hero .eyebrow { margin-bottom: 4px; font-size: .52rem; line-height: 1.35; }
+  .intro { margin: 5px 0 7px; font-size: .75rem; line-height: 1.38; }
+  .contact-row { gap: 8px; }
+  .contact-row a { font-size: .62rem; }
+  .portrait-wrap { width: 72px; align-self: start; }
   .portrait-wrap img { aspect-ratio: 1 / 1; }
   .section-grid { grid-template-columns: 1fr; gap: 6px; padding: 30px 0; }
   .section-grid h2, .section-heading h2 { font-size: 1.3rem; }
