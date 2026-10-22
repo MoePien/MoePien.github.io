@@ -70,9 +70,9 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 
 .section-grid {
   display: grid;
-  grid-template-columns: 115px 1fr;
-  gap: 32px;
-  padding: 28px 0;
+  grid-template-columns: 52px 1fr;
+  gap: 18px;
+  padding: 24px 0;
   border-top: 1px solid var(--line);
 }
 .section-grid h2, .section-heading h2, .empty-state h2 {
@@ -82,15 +82,15 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   line-height: 1.25;
   letter-spacing: -.025em;
 }
-.body-large { max-width: 720px; margin: 13px 0 0; color: var(--muted); font-size: .94rem; }
+.body-large { max-width: 720px; margin: 7px 0 0; color: var(--muted); font-size: .9rem; }
 
-.publications { padding: 28px 0; border-top: 1px solid var(--line); }
+.publications { padding: 24px 0; border-top: 1px solid var(--line); }
 .section-heading {
   display: grid;
-  grid-template-columns: 115px 1fr auto;
-  gap: 32px;
+  grid-template-columns: 52px 1fr auto;
+  gap: 18px;
   align-items: end;
-  margin-bottom: 22px;
+  margin-bottom: 16px;
 }
 .section-heading .section-number { align-self: start; }
 .section-heading > p:last-child { margin: 0; color: var(--muted); font-size: .75rem; }
@@ -99,7 +99,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   display: grid;
   grid-template-columns: 45px 1fr 14px;
   gap: 12px;
-  padding: 12px 4px;
+  padding: 10px 4px;
   border-bottom: 1px solid var(--line);
 }
 .paper:hover { background: #f5f6f6; }
@@ -111,8 +111,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .featured-paper { color: inherit; background: transparent; }
 .featured-paper .paper-year, .featured-paper p { color: var(--muted); }
 
-.software-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 16px; }
-.software-card { display: block; padding: 16px; border: 1px solid var(--line); border-radius: 3px; color: var(--text); text-decoration: none; }
+.software-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 10px; }
+.software-card { display: block; padding: 14px; border: 1px solid var(--line); border-radius: 3px; color: var(--text); text-decoration: none; }
 .software-card:hover { border-color: #b9c1c6; background: #f7f8f8; }
 .software-card h3 { margin: 10px 0 6px; font-size: 1rem; }
 .software-card p { margin: 0 0 12px; color: var(--muted); font-size: .78rem; }
@@ -121,7 +121,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .site-footer {
   display: flex;
   justify-content: space-between;
-  padding: 24px 0;
+  padding: 18px 0;
   border-top: 1px solid var(--line);
   color: var(--muted);
   font-size: .72rem;
@@ -182,13 +182,13 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .contact-row a { font-size: .62rem; }
   .portrait-wrap { width: 56px; align-self: start; }
   .portrait-wrap img { aspect-ratio: 1 / 1; }
-  .section-grid { grid-template-columns: 1fr; gap: 5px; padding: 22px 0; }
+  .section-grid { grid-template-columns: 1fr; gap: 2px; padding: 19px 0; }
   .section-grid h2, .section-heading h2 { font-size: 1.04rem; }
-  .body-large { margin-top: 8px; font-size: .84rem; }
-  .publications { padding: 22px 0; }
-  .section-heading { grid-template-columns: 1fr; gap: 5px; margin-bottom: 15px; }
+  .body-large { margin-top: 5px; font-size: .82rem; }
+  .publications { padding: 19px 0; }
+  .section-heading { grid-template-columns: 1fr; gap: 2px; margin-bottom: 12px; }
   .section-heading > p:last-child { margin-top: 2px; }
-  .paper { grid-template-columns: 34px 1fr 10px; gap: 7px; padding: 10px 2px; }
+  .paper { grid-template-columns: 34px 1fr 10px; gap: 7px; padding: 8px 2px; }
   .paper a { font-size: .79rem; }
   .paper p { font-size: .62rem; }
   .software-grid { grid-template-columns: 1fr; gap: 8px; margin-top: 12px; }
