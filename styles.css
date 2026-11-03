@@ -190,6 +190,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .post-body li { margin: 5px 0; }
 .post-body blockquote { margin: 15px 0; padding: 9px 13px; border-left: 3px solid #aebdc6; color: var(--muted); background: #f6f8f9; }
 .post-body blockquote p { margin: 0; }
+.post-body .post-disclaimer { margin: 22px 0 0; padding: 11px 13px; border: 1px solid var(--line); border-left: 3px solid #aebdc6; border-radius: 3px; color: var(--muted); background: #f6f8f9; font-size: .72rem; line-height: 1.55; }
+.post-body .post-disclaimer strong { color: var(--text); }
 .post-body table { display: block; width: 100%; margin: 14px 0 21px; overflow-x: auto; border-collapse: collapse; font-size: .72rem; white-space: nowrap; }
 .post-body th, .post-body td { padding: 7px 9px; border-bottom: 1px solid var(--line); text-align: right; }
 .post-body th { color: var(--text); background: #f3f5f6; font-weight: 600; }
