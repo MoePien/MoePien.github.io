@@ -74,4 +74,4 @@ echo "Draft:   http://localhost:4000/blog/good-stage-1-initialization.html"
 echo "Edit:    $source_file"
 echo "Press Ctrl+C to stop."
 cd "$preview_dir"
-python3 -m http.server 4000
+python3 "$repo_dir/scripts/preview-server.py" 4000
