@@ -22,6 +22,10 @@ template_file="$repo_dir/templates/post.html"
 render() {
   mkdir -p "$preview_dir"
   cp "$repo_dir/styles.css" "$preview_dir/styles.css"
+  if [[ -d "$(dirname "$source_file")/assets" ]]; then
+    mkdir -p "$preview_dir/assets"
+    cp -R "$(dirname "$source_file")/assets/." "$preview_dir/assets/"
+  fi
   pandoc "$source_file" \
     --from=gfm+tex_math_dollars \
     --to=html5 \
