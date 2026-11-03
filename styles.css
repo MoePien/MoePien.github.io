@@ -195,7 +195,10 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .post-body th { color: var(--text); background: #f3f5f6; font-weight: 600; }
 .post-body th:first-child, .post-body td:first-child { position: sticky; left: 0; z-index: 1; text-align: left; background: var(--background); }
 .post-body th:first-child { background: #f3f5f6; }
-.post-body .table-note { margin: -14px 0 20px; color: var(--muted); font: .6rem "DM Mono", monospace; text-align: right; }
+.post-body .table-with-note { display: grid; grid-template-columns: minmax(0, 1fr) 155px; gap: 12px; align-items: start; margin: 14px 0 21px; }
+.post-body .table-scroll { min-width: 0; overflow-x: auto; }
+.post-body .table-with-note table { display: table; margin: 0; overflow: visible; }
+.post-body .table-note { margin: 8px 0 0; color: var(--muted); font: .6rem/1.45 "DM Mono", monospace; text-align: left; }
 .post-body code { padding: 1px 4px; border-radius: 2px; background: #eef1f2; font-size: .85em; }
 .post-body pre { overflow-x: auto; padding: 12px; border: 1px solid var(--line); border-radius: 3px; background: #f5f6f6; }
 .post-body pre code { padding: 0; background: transparent; }
@@ -259,6 +262,8 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
   .post-body h2 { margin-top: 27px; font-size: 1.08rem; }
   .post-body h3 { font-size: .92rem; }
   .post-body table { font-size: .66rem; }
+  .post-body .table-with-note { grid-template-columns: minmax(0, 1fr) 110px; gap: 8px; }
+  .post-body .table-note { font-size: .52rem; }
   .post-body .figure-row { grid-template-columns: 1fr; gap: 18px; }
 }
 
