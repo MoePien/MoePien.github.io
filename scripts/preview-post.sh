@@ -16,15 +16,21 @@ if [[ ! -f "$source_file" ]]; then
 fi
 
 preview_dir="$repo_dir/.preview"
-output_file="$preview_dir/index.html"
+post_dir="$preview_dir/blog"
+output_file="$post_dir/good-stage-1-initialization.html"
 template_file="$repo_dir/templates/post.html"
+blog_preview_file="$repo_dir/templates/blog-preview.html"
 
 render() {
-  mkdir -p "$preview_dir"
+  mkdir -p "$preview_dir" "$post_dir"
   cp "$repo_dir/styles.css" "$preview_dir/styles.css"
+  cp "$repo_dir/index.html" "$preview_dir/index.html"
+  cp "$repo_dir/ratings.html" "$preview_dir/ratings.html"
+  cp "$repo_dir/anime_mo.jpg" "$preview_dir/anime_mo.jpg"
+  cp "$blog_preview_file" "$preview_dir/blog.html"
   if [[ -d "$(dirname "$source_file")/assets" ]]; then
-    mkdir -p "$preview_dir/assets"
-    cp -R "$(dirname "$source_file")/assets/." "$preview_dir/assets/"
+    mkdir -p "$post_dir/assets"
+    cp -R "$(dirname "$source_file")/assets/." "$post_dir/assets/"
   fi
   pandoc "$source_file" \
     --from=gfm+tex_math_dollars \
@@ -34,8 +40,8 @@ render() {
     --toc-depth=2 \
     --mathjax \
     --template="$template_file" \
-    --metadata=asset_root=. \
-    --metadata=site_root=https://moepien.github.io \
+    --metadata=asset_root=.. \
+    --metadata=site_root=.. \
     --output="$output_file"
   echo "Rendered $output_file"
 }
@@ -64,6 +70,7 @@ watch &
 watch_pid=$!
 
 echo "Preview: http://localhost:4000/"
+echo "Draft:   http://localhost:4000/blog/good-stage-1-initialization.html"
 echo "Edit:    $source_file"
 echo "Press Ctrl+C to stop."
 cd "$preview_dir"
