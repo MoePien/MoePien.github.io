@@ -198,7 +198,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .post-body .table-with-note { display: grid; grid-template-columns: minmax(0, 1fr) 155px; gap: 12px; align-items: start; margin: 14px 0 21px; }
 .post-body .table-scroll { min-width: 0; overflow-x: auto; }
 .post-body .table-with-note table { display: table; margin: 0; overflow: visible; }
-.post-body .table-note { margin: 8px 0 0; color: var(--muted); font: .6rem/1.45 "DM Mono", monospace; text-align: left; }
+.post-body .table-note { align-self: end; margin: 0 0 2px; color: var(--muted); font: .6rem/1.45 "DM Mono", monospace; text-align: right; }
 .post-body code { padding: 1px 4px; border-radius: 2px; background: #eef1f2; font-size: .85em; }
 .post-body pre { overflow-x: auto; padding: 12px; border: 1px solid var(--line); border-radius: 3px; background: #f5f6f6; }
 .post-body pre code { padding: 0; background: transparent; }
