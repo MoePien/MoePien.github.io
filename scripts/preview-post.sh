@@ -36,8 +36,6 @@ render() {
     --from=gfm+tex_math_dollars \
     --to=html5 \
     --standalone \
-    --toc \
-    --toc-depth=2 \
     --mathjax \
     --template="$template_file" \
     --metadata=asset_root=.. \

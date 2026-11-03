@@ -31,12 +31,6 @@
           $if(description)$<p class="post-deck">$description$</p>$endif$
           <p class="post-meta"><span class="draft-badge">$status$</span> Updated $updated$</p>
         </header>
-        $if(toc)$
-        <details class="post-toc">
-          <summary>Contents</summary>
-          $table-of-contents$
-        </details>
-        $endif$
         <div class="post-body">
 $body$
         </div>

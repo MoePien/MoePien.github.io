@@ -181,10 +181,6 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .post-deck { max-width: 650px; margin: 10px 0 0; color: var(--muted); font-size: .94rem; }
 .post-meta { margin: 13px 0 0; color: var(--muted); font: .65rem "DM Mono", monospace; }
 .draft-badge { display: inline-block; margin-right: 8px; padding: 2px 6px; border: 1px solid #c6a94c; border-radius: 2px; color: #705d19; background: #fffbea; text-transform: uppercase; }
-.post-toc { margin: 22px 0; padding: 10px 13px; border: 1px solid var(--line); border-radius: 3px; font-size: .78rem; }
-.post-toc summary { color: var(--text); font-weight: 600; cursor: pointer; }
-.post-toc nav ul { margin: 9px 0 2px; padding-left: 20px; }
-.post-toc nav li { margin: 3px 0; }
 .post-body { color: #30353a; font-size: .91rem; line-height: 1.68; }
 .post-body > :first-child { margin-top: 0; }
 .post-body h2 { margin: 34px 0 10px; padding-top: 6px; border-top: 1px solid var(--line); color: var(--text); font-size: 1.25rem; line-height: 1.3; }
@@ -205,6 +201,7 @@ a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
 .post-body mjx-container[display="true"] { overflow-x: auto; overflow-y: hidden; padding: 3px 0; }
 .post-body img { display: block; max-width: 100%; height: auto; margin: 18px auto; }
 .post-body figure { min-width: 0; margin: 18px 0; }
+.post-body .figure-compact { max-width: 590px; margin-right: auto; margin-left: auto; }
 .post-body figure img { margin: 0 auto; }
 .post-body figcaption { margin-top: 6px; color: var(--muted); font: .64rem "DM Mono", monospace; text-align: center; }
 .post-body .figure-row { display: grid; gap: 16px; align-items: start; margin: 18px 0 24px; }
