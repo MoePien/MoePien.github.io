@@ -9,18 +9,18 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="$root$/styles.css" />
+    <link rel="stylesheet" href="$asset_root$/styles.css" />
     $if(math)$
     <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     $endif$
   </head>
   <body>
     <header class="site-header">
-      <a class="wordmark" href="$root$/index.html" aria-label="Moritz Piening, home">MP<span>.</span></a>
+      <a class="wordmark" href="$site_root$/index.html" aria-label="Moritz Piening, home">MP<span>.</span></a>
       <nav class="tabs" aria-label="Primary navigation">
-        <a href="$root$/index.html">Main</a>
-        <a href="$root$/blog.html" aria-current="page">Blog</a>
-        <a href="$root$/ratings.html">Rating Stuff</a>
+        <a href="$site_root$/index.html">Main</a>
+        <a href="$site_root$/blog.html" aria-current="page">Blog</a>
+        <a href="$site_root$/ratings.html">Rating Stuff</a>
       </nav>
     </header>
     <main class="post-shell shell">
@@ -44,7 +44,7 @@ $body$
     </main>
     <footer class="site-footer shell">
       <p>Moritz Piening <span>·</span> Göttingen, Germany</p>
-      <a href="$root$/blog.html">Blog</a>
+      <a href="$site_root$/blog.html">Blog</a>
     </footer>
   </body>
 </html>

@@ -15,13 +15,13 @@ if [[ ! -f "$source_file" ]]; then
   exit 1
 fi
 
-slug="$(basename "${source_file%.md}")"
 preview_dir="$repo_dir/.preview"
-output_file="$preview_dir/$slug.html"
+output_file="$preview_dir/index.html"
 template_file="$repo_dir/templates/post.html"
 
 render() {
   mkdir -p "$preview_dir"
+  cp "$repo_dir/styles.css" "$preview_dir/styles.css"
   pandoc "$source_file" \
     --from=gfm+tex_math_dollars \
     --to=html5 \
@@ -30,7 +30,8 @@ render() {
     --toc-depth=2 \
     --mathjax \
     --template="$template_file" \
-    --metadata=root=.. \
+    --metadata=asset_root=. \
+    --metadata=site_root=https://moepien.github.io \
     --output="$output_file"
   echo "Rendered $output_file"
 }
@@ -58,8 +59,8 @@ trap cleanup EXIT INT TERM
 watch &
 watch_pid=$!
 
-echo "Preview: http://localhost:4000/.preview/$slug.html"
+echo "Preview: http://localhost:4000/"
 echo "Edit:    $source_file"
 echo "Press Ctrl+C to stop."
-cd "$repo_dir"
+cd "$preview_dir"
 python3 -m http.server 4000

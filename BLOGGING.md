@@ -8,7 +8,7 @@ Drafts live in `drafts/` and are ignored by Git, so they are not published or ex
 ./scripts/preview-post.sh drafts/good-stage-1-init.md
 ```
 
-Open <http://localhost:4000/.preview/good-stage-1-init.html>. The preview rebuilds whenever the Markdown draft, post template, or stylesheet changes. Stop it with `Ctrl+C`.
+Open <http://localhost:4000/>. The draft opens directly and rebuilds whenever the Markdown source, post template, or stylesheet changes. Stop it with `Ctrl+C`.
 
 To render once without starting a server:
 
