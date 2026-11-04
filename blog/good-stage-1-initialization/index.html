@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description" content="Training Stage 1 of Priming Models
+from a flow-matching and optimal-transport perspective." />
+    <title>I started overthinking Priming
+Models · Moritz Piening</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../styles.css" />
+        <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      </head>
+  <body>
+    <header class="site-header">
+      <a class="wordmark" href="../../index.html" aria-label="Moritz Piening, home">MP<span>.</span></a>
+      <nav class="tabs" aria-label="Primary navigation">
+        <a href="../../index.html">Main</a>
+        <a href="../../blog.html" aria-current="page">Blog</a>
+        <a href="../../ratings.html">Rating Stuff</a>
+      </nav>
+    </header>
+    <main class="post-shell shell">
+      <article>
+        <header class="post-header">
+          <p class="post-topline">priming models · one-step
+generation · flow matching · optimal transport</p>
+          <h1>I started overthinking Priming Models</h1>
+          <p class="post-deck">Training Stage 1 of Priming Models from a
+flow-matching and optimal-transport perspective.</p>
+                    <p class="post-meta">Published 3 November 2026,
+17:26 CET</p>
+                  </header>
+        <div class="post-body">
+<p>Among the recent papers on few-step generation, <a
+href="https://arxiv.org/abs/2610.20331">Priming Models</a> clearly
+stands out: at first sight, it does not sound like a good idea at all,
+but then it works way too well.</p>
+<p>In their most basic setup, they first train a denoiser at one fixed
+interpolation time ('<strong>Stage 1</strong>'), then turn it into a
+one-step generator with (a much more expensive) distributional
+post-training ('<strong>Stage 2</strong>'). Notably, this Stage-2
+training is conceptually not very far from <a
+href="https://arxiv.org/pdf/1706.00292">very early-stage approaches to
+generative modeling</a>, but gives surprisingly good results for image
+generation. So, I played around with it and burned some compute on
+experiments to see whether (i) it could help me understand the method
+and (ii) I could improve it somehow using lessons from flow
+matching.</p>
+<h2 id="a-quick-recap-of-priming-models">A quick recap of priming
+models</h2>
+<p>Let <span class="math inline">\(X\sim p_X\)</span> be Gaussian noise
+and <span class="math inline">\(Y\sim p_Y\)</span> a data point, i.e.,
+an image. A <strong>coupling</strong> <span
+class="math inline">\(\pi\in\Pi(p_X,p_Y)\)</span> specifies how noise
+samples <span class="math inline">\(X\)</span> and data samples <span
+class="math inline">\(Y\)</span> are paired. Drawing <span
+class="math inline">\((X,Y)\sim\pi\)</span>, define</p>
+<p><span class="math display">\[Z_t=(1-t)X+tY, \qquad
+t\in[0,1].\]</span></p>
+<p>Thus, <span class="math inline">\(t=0\)</span> is pure noise and
+<span class="math inline">\(t=1\)</span> is pure data. The paper instead
+writes the noise level as <span class="math inline">\(s\)</span>, but we
+can recover everything via the time reversal <span
+class="math inline">\(s=1-t\)</span>. However, let us use <span
+class="math inline">\(t\)</span> for now.</p>
+<p>In <strong>Stage 1</strong>, the network <span
+class="math inline">\(D_\theta\)</span> predicts the clean data image
+<span class="math inline">\(Y\)</span> from <span
+class="math inline">\(Z_t\)</span> at one fixed time <span
+class="math inline">\(t\)</span> via the loss:</p>
+<p><span class="math display">\[\mathcal L_1(\theta;\pi,t)=\mathbb
+E_{(X,Y)\sim\pi}\left[\lVert
+D_\theta(Z_t)-Y\rVert^2\right].\]</span></p>
+<p>The paper implicitly uses the independent coupling <span
+class="math inline">\(\pi_{\mathrm{ind}}=p_X\otimes p_Y\)</span>.
+Writing the loss in terms of <span class="math inline">\(\pi\)</span>
+allows us to replace this independent coupling with <a
+href="https://proceedings.mlr.press/v202/pooladian23a/pooladian23a.pdf">minibatch
+couplings</a>, such as the <a
+href="https://www.jmlr.org/papers/volume26/24-0586/24-0586.pdf">(class-conditional)
+optimal transport (OT) coupling</a> <span
+class="math inline">\(\pi_{\mathrm{OT}}\)</span>.</p>
+<p>In <strong>Stage 2</strong>, the same network is post-trained as a
+one-step generator. The paper measures a featurewise OT discrepancy over
+several pretrained and frozen feature extractors <span
+class="math inline">\(\phi_k\)</span> and mixes two entropic
+regularization strengths. With <span class="math inline">\(\widehat
+Y=D_\theta(X)\)</span> and <span class="math inline">\(\widehat
+Y&#39;=D_\theta(X&#39;)\)</span>, the loss is</p>
+<p><span class="math display">\[\mathcal
+L_2(\theta)=\sum_{k=1}^K\sum_\varepsilon
+w_{k,\varepsilon}\left[\operatorname{OT}_\varepsilon\!\left(\phi_k(\widehat
+Y),\phi_k(Y)\right)-\operatorname{OT}_\varepsilon\!\left(\phi_k(\widehat
+Y),\operatorname{sg}\phi_k(\widehat Y&#39;)\right)\right].\]</span></p>
+<p>Here, <span
+class="math inline">\(\operatorname{OT}_\varepsilon\)</span> is entropic
+OT and <span class="math inline">\(\operatorname{sg}\)</span> stops the
+gradient. For my experiments, I kept the original ConvNeXt-V2-B features
+(at <span class="math inline">\(112\times112\)</span> resolution) and
+replaced the ResNet-MAE features with features from ResNet-18
+classifiers. I trained a separate classifier on each of MNIST,
+Fashion-MNIST, and CIFAR-10, mainly to obtain dataset-specific
+features.</p>
+<h2 id="stage-1-is-flow-matching-at-a-fixed-time">Stage 1 is flow
+matching at a fixed time</h2>
+<p>If we parametrize the velocity in flow matching as</p>
+<p><span
+class="math display">\[v_\theta(Z_t)=\frac{D_\theta(Z_t)-Z_t}{1-t},\]</span></p>
+<p>our flow-matching loss becomes</p>
+<p><span class="math display">\[\left\lVert
+v_\theta(Z_t)-(Y-X)\right\rVert^2
+=\frac{\left\lVert D_\theta(Z_t)-Y\right\rVert^2}{(1-t)^2}.\]</span></p>
+<p>So Stage 1 is just <a
+href="https://openaccess.thecvf.com/content/CVPR2026/papers/Li_Back_to_Basics_Let_Denoising_Generative_Models_Denoise_CVPR_2026_paper.pdf"><span
+class="math inline">\(x\)</span>-prediction flow matching</a> at one
+fixed time <span class="math inline">\(t\)</span>, up to a constant.
+Importantly, however, the paper demonstrated that the specific choice of
+<span class="math inline">\(t\)</span> matters a lot, but there seems to
+be no clear diagnostic to pick the optimal time a priori. This led to
+the question:</p>
+<p><em>Can replacing <span
+class="math inline">\(\pi_{\mathrm{ind}}\)</span> with <span
+class="math inline">\(\pi_{\mathrm{OT}}\)</span> improve the final
+result and make it less sensitive to <span
+class="math inline">\(t\)</span>?</em></p>
+<p>I ran all experiments class-conditionally on <span
+class="math inline">\(32\times32\)</span> images. For Stage 1, I used
+the same 36M-parameter U-Net and a training batch size of 128
+throughout. Both couplings paired noise and data within each class: the
+independent arm used random within-class pairs, while OT solved an exact
+minimum-MSE matching within class-specific pools (2,500 for CIFAR-10 and
+3,000 for MNIST and Fashion-MNIST). I reported Stage-2 FID-50k against
+the training set, using EMA weights and one network call per sample. All
+runs used one seed.</p>
+<h2
+id="experiment-1-the-fixed-time-denoiser-at-different-times">Experiment
+1: the fixed-time denoiser at different times</h2>
+<p>I first kept the paper's Stage-1 setup: I trained the denoiser for
+100k updates at one fixed time <span class="math inline">\(t\)</span>,
+then ran Stage 2 for 10k updates. The blue curve uses the paper's
+independent pairing of <span class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span>. The orange curve shows the same setup,
+but with the independent pairing replaced by minibatch OT.</p>
+<figure class="figure-compact">
+  <img src="assets/cifar_fid_vs_t.png" alt="Stage-2 FID against Stage-1 flow time for CIFAR-10, comparing independent and OT pairings." />
+  <figcaption>CIFAR-10. Stage-2 FID after 10k updates.</figcaption>
+</figure>
+
+<p>As in the original paper, the specific time <span
+class="math inline">\(t\)</span> matters a lot, but its optimal value
+differs substantially from the one reported for ImageNet. The optimal
+CIFAR-10 time seems to be <span class="math inline">\(t^*\approx
+0.6\)</span> for both couplings. In contrast, the paper found <span
+class="math inline">\(t^* \approx 0.2\)</span> for ImageNet (<span
+class="math inline">\(s^* \approx 0.8\)</span>). Since similar but less
+systematic runs on MNIST and Fashion-MNIST also pointed very roughly to
+<span class="math inline">\(t^*\approx 0.6\)</span>, the specific time,
+i.e., the noise level, presumably depends on the image resolution.</p>
+<p>On CIFAR-10, OT is at least as good at all ten matched times and
+flattens the curve considerably. In this sweep, OT helps and reduces the
+dependence on the chosen time. However, the OT advantage at the
+separately optimized times is narrow (OT FID 3.03 at <span
+class="math inline">\(t^*=0.55\)</span>, independent FID 3.12 at <span
+class="math inline">\(t^*=0.65\)</span>).</p>
+<h2 id="experiment-2-start-from-a-full-flow-matching-network">Experiment
+2: start from a full flow-matching network</h2>
+<p>Since Stage 1 is flow matching at some fixed time, the next step was
+to start from a flow-matching network trained across all times. So, I
+trained the same U-Net with a time input and velocity loss for 200k
+updates, froze it at <span class="math inline">\(t=0.6\)</span>, and ran
+the same Stage 2. I chose <span class="math inline">\(t=0.6\)</span>
+from the CIFAR-10 sweep and did not tune it per dataset.</p>
+<p>Stage-2 FID after 10k updates:</p>
+<div class="table-with-note">
+  <div class="table-scroll">
+    <table>
+      <thead><tr><th>Dataset</th><th>Independent init</th><th>OT init</th><th>Test vs. train*</th></tr></thead>
+      <tbody>
+        <tr><td>MNIST</td><td>1.16</td><td><strong>0.99</strong></td><td>1.02</td></tr>
+        <tr><td>Fashion-MNIST</td><td>1.67</td><td><strong>1.45</strong></td><td>1.42</td></tr>
+        <tr><td>CIFAR-10</td><td>2.87</td><td><strong>2.65</strong></td><td>3.15</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="table-note"><sup>*</sup> Uses only 10k test images and is upward-biased relative to FID-50k.</p>
+</div>
+
+<p>OT is slightly better in every row. Continuing the two CIFAR-10 runs
+to 25k Stage-2 updates resulted in FIDs of <strong>2.36 with independent
+pairing and 2.21 with OT</strong>.</p>
+<p>With the same input noise and class, the independent and OT models
+produce very similar images. The grids below show both models, followed
+by the nearest training images for OT. Both approaches seem to
+generalize and give similar results despite their different
+initializations.</p>
+<div class="figure-row figure-row--samples">
+  <figure>
+    <img src="assets/cifar_ind_samples.png" alt="CIFAR-10 one-step samples from the independent flow-matching initialization after 25k Stage-2 updates." />
+    <figcaption>Independent samples after 25k Stage-2 updates.</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/cifar_ot_samples.png" alt="CIFAR-10 one-step samples from the OT flow-matching initialization after 25k Stage-2 updates." />
+    <figcaption>OT samples after 25k Stage-2 updates.</figcaption>
+  </figure>
+  <figure>
+    <img src="assets/cifar_ot_neighbours.png" alt="Nearest CIFAR-10 training image for every generated sample, measured by pixel L2 distance." />
+    <figcaption>Nearest training images to the OT samples by pixel L<sub>2</sub>.</figcaption>
+  </figure>
+</div>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>I find Priming Models very interesting, but the framework opens a new
+question: how do we find the right noise level for Stage 1? Notably, I
+could not find a useful Stage-1 diagnostic to predict the final Stage-2
+performance. In particular, the convergence rate seems to depend on the
+starting time <span class="math inline">\(t\)</span> as well, so even a
+shortened Stage-2 run cannot give a final answer.</p>
+<p>My current default would be an OT flow-matching network. OT is
+consistently a little better, makes the result less dependent on the
+chosen time, and Stage 2 is expensive enough that starting from the
+better network matters. Access to a flow-matching network trained across
+all times also makes it faster to run a couple of Stage-2 runs.</p>
+<p>However, I doubt this is the final answer. There are probably better
+ways to construct or select Stage 1. Looking forward to someone finding
+them! :)</p>
+<aside class="post-disclaimer">
+  <strong>Disclaimer.</strong> These are small, single-seed experiments at 32 px. I omitted the auxiliary LPIPS and ConvNeXt perceptual losses used in the main paper from my Stage-1 training for clarity. The blog text is mostly my own, but the code is all vibes: <a href="https://github.com/MoePien/overthinking_priming_models">GitHub</a>.
+</aside>
+        </div>
+      </article>
+    </main>
+    <footer class="site-footer shell">
+      <p>Moritz Piening <span>·</span> Göttingen, Germany</p>
+      <a href="../../blog.html">Blog</a>
+    </footer>
+  </body>
+</html>

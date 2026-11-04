@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="robots" content="noindex, nofollow" />
+$if(published)$$else$    <meta name="robots" content="noindex, nofollow" />$endif$
     <meta name="description" content="$description$" />
     <title>$title$ · Moritz Piening</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -29,7 +29,11 @@
           <p class="post-topline">$for(tags)$$tags$$sep$ · $endfor$</p>
           <h1>$title$</h1>
           $if(description)$<p class="post-deck">$description$</p>$endif$
+          $if(published)$
+          <p class="post-meta">Published $updated$</p>
+          $else$
           <p class="post-meta"><span class="draft-badge">$status$</span> Updated $updated$</p>
+          $endif$
         </header>
         <div class="post-body">
 $body$
