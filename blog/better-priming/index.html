@@ -156,10 +156,11 @@ differs substantially from the one reported for ImageNet. The optimal
 CIFAR-10 time seems to be <span class="math inline">\(t^*\approx
 0.6\)</span> for both couplings. In contrast, the paper found <span
 class="math inline">\(t^* \approx 0.2\)</span> for ImageNet (<span
-class="math inline">\(s^* \approx 0.8\)</span>). Since similar but less
+class="math inline">\(s^* \approx 0.8\)</span>). Similar but less
 systematic runs on MNIST and Fashion-MNIST also pointed very roughly to
-<span class="math inline">\(t^*\approx 0.6\)</span>, the specific time,
-i.e., the noise level, presumably depends on the image resolution.</p>
+<span class="math inline">\(t^*\approx 0.6\)</span>. 
+My best guess is that the optimal time/noise level for imaging mostly depends on the image resolution, 
+as it influences the <a href="https://arxiv.org/abs/2609.32432">signal-to-noise ratio</a>.</p>
 <p>On CIFAR-10, OT is at least as good at all ten matched times and
 flattens the curve considerably. In this sweep, OT helps and reduces the
 dependence on the chosen time. However, the OT advantage at the
