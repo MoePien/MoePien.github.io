@@ -170,9 +170,11 @@ class="math inline">\(t^*=0.65\)</span>).</p>
 <h2 id="experiment-2-start-from-a-full-flow-matching-network">Experiment
 2: start from a full flow-matching network</h2>
 <p>Since Stage 1 is flow matching at some fixed time, the next step was
-to start from a flow-matching network trained across all times. So, I
-trained the same U-Net with a time input and velocity loss for 200k
-updates, froze it at <span class="math inline">\(t=0.6\)</span>, and ran
+to start from a flow-matching network trained across all times. 
+  So, I
+trained the same U-Net with a time input and velocity loss, 
+  doubled the network updates to 200k, 
+  froze it at <span class="math inline">\(t=0.6\)</span>, and ran
 the same Stage 2. I chose <span class="math inline">\(t=0.6\)</span>
 from the CIFAR-10 sweep and did not tune it per dataset.</p>
 <p>Stage-2 FID after 10k updates:</p>
